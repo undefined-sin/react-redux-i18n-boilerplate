@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const bundlePath = path.resolve(__dirname, "dist/");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const uglifyPluginInstance = new UglifyJsPlugin({
   uglifyOptions: {
@@ -10,6 +11,10 @@ const uglifyPluginInstance = new UglifyJsPlugin({
     }
   }
 });
+
+const miniCssExtractPluginInstance = new MiniCssExtractPlugin({
+  filename: "[name].css"
+})
 
 module.exports = {
   entry: "./src/index.js",
@@ -21,8 +26,8 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        test: /\.(less|css)$/,
+        use: [ 'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'less-loader' ]
       }
     ]
   },
@@ -44,5 +49,5 @@ module.exports = {
     port: 3000,
     publicPath: "http://localhost:3000/dist"
   },
-  plugins: [ new webpack.HotModuleReplacementPlugin() ]
+  plugins: [ new webpack.HotModuleReplacementPlugin(), miniCssExtractPluginInstance ]
 };

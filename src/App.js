@@ -1,7 +1,7 @@
 import React, { Component} from "react";
 import { Provider } from 'react-redux';
 import {ThemeProvider} from 'styled-components';
-import 'normalize.css'; // Resets browser defaults
+//import 'normalize.css'; // Resets browser defaults
 import configureStore from './store/configureStore';
 import { selectApplicationContext } from "./utils/appUtils";
 import Home from './pages/home/home.js';
@@ -28,6 +28,9 @@ class App extends Component{
   render(){
     const ProviderImpl = this.getProviderImpl();
     const ThemeProviderImpl = this.getThemeProviderImpl();
+
+
+    
     return(<ProviderImpl store={store}>
 		    <ThemeProviderImpl theme={theme}>
           <Home />

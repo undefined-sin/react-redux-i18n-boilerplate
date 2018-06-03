@@ -1,6 +1,13 @@
 const path = require("path");
 const webpack = require("webpack");
 const bundlePath = path.resolve(__dirname, "dist/");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const miniCssExtractPluginInstance = new MiniCssExtractPlugin({
+  filename: "[name].css"
+});
+
+
 module.exports = {
   entry: "./src/index.js",
   module: {
@@ -12,7 +19,7 @@ module.exports = {
       },
       {
         test: /\.(less|css)$/,
-        use: [ 'style-loader', 'css-loader', 'less-loader' ]
+        use: [ 'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'less-loader' ]
       }
       ,
     ]
@@ -32,5 +39,5 @@ module.exports = {
     port: 3000,
     publicPath: "http://localhost:3000/dist"
   },
-  plugins: [ new webpack.HotModuleReplacementPlugin() ]
+  plugins: [ new webpack.HotModuleReplacementPlugin(), miniCssExtractPluginInstance ]
 };
