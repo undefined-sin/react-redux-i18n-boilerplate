@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const bundlePath = path.resolve(__dirname, "dist/");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const uglifyPluginInstance = new UglifyJsPlugin({
   uglifyOptions: {
@@ -14,7 +15,7 @@ const uglifyPluginInstance = new UglifyJsPlugin({
 
 const miniCssExtractPluginInstance = new MiniCssExtractPlugin({
   filename: "[name].css"
-})
+});
 
 module.exports = {
   entry: "./src/index.js",
@@ -42,7 +43,9 @@ module.exports = {
     filename: "bundle.js"
   },
   optimization: {
-    minimizer: [ uglifyPluginInstance ]
+    minimizer: [ uglifyPluginInstance, new OptimizeCSSAssetsPlugin({
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+    }) ]
   },
   devServer: {
     contentBase: path.join(__dirname,'public'),

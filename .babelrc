@@ -3,5 +3,12 @@
   "plugins": [
     "transform-object-rest-spread",
     "transform-class-properties"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        [ "babel-plugin-webpack-aliases", { "config": "./webpack.config.test.js" } ]
+      ]
+    }
+  }
 }
