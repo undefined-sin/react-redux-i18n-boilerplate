@@ -5,30 +5,39 @@ import {
   compose
 } from 'redux';
 import thunk from 'redux-thunk';
-import applicationReducer from '../reducers/index';
+import applicationReducer from '@basepath/reducers/index';
 import {
   selectApplicationContext
-} from '../utils/appUtils'
-import HomeReducer from '@basepath/pages/home/reducer/index';
+} from '@basepath/utils/appUtils'
+import entries from '@basepath/entrypoints';
 
 let StoreInstance = null;
 
-//const devTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const devTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const reducers = combineReducers({
-   application: applicationReducer,
-   home: HomeReducer
-});
 
 export function getStore(){
   return StoreInstance;
+}
+
+function mapReducers (){
+  return Object.keys(entries).reduce((prev, key) => {
+    const instance = {
+      ...prev,
+    };
+    instance[key] = entries[key].reducer;
+    return instance;
+  }, {});
 }
 
 export default function configureStore() {  
   if (!StoreInstance){
     const context = selectApplicationContext();
     StoreInstance = createStore(
-      reducers,
+      combineReducers({
+        application: applicationReducer,
+        ...mapReducers()
+     }),
       {
         application: {
           language: context.language,
@@ -37,7 +46,7 @@ export default function configureStore() {
       },
       compose(
         applyMiddleware(thunk),
-        //devTool
+        devTool
       )
     );
   }
