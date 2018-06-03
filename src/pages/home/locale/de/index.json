@@ -1,0 +1,13 @@
+{
+  "header": {
+    "title": "German title",
+    "home": "German home",
+    "about": "About us german",
+    "knowmore": "Know more german"
+  },
+  "pages":{
+    "home":{
+      "title": "My CV in german"
+    }
+  }
+}
