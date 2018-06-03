@@ -59,3 +59,4 @@ import ReactSixteenAdapter  from 'enzyme-adapter-react-16';
 enzyme.configure({ adapter: new ReactSixteenAdapter () });
 
 global.expect = require('chai').expect;
+
