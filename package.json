@@ -5,6 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "test": "SET BABEL_ENV=test&&mocha --watch --require babel-core/register ./test/test_helper.js --recursive src/**/*-spec.js ",
+    "test-browser": "SET BABEL_ENV=test&&mocha --watch --require babel-core/register ./test/test_helper.js --recursive src/**/*-spec.js ",
     "start": "webpack-dev-server --mode development",
     "build": "SET NODE_ENV=production && webpack --config webpack.config.production.js -p"
   },

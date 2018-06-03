@@ -3,7 +3,7 @@ import {
   mount
 } from 'enzyme';
 import App from '@basepath/App';
-import Home from '@basepath/pages/home/home';
+import Home from '@basepath/pages/home';
 describe('', () => {
   it('should render an application component', () => {
     App.getThemeProviderImpl = () => <span />;

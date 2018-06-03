@@ -6,8 +6,8 @@ import {
   selectLanguage,
   selectTranslator
 } from '@basepath/utils/appUtils';
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
+import Header from '../../components/header/header';
+import Footer from '../../components/footer/footer';
 
 
 export class Home extends Component {

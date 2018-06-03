@@ -4,7 +4,7 @@ import {ThemeProvider} from 'styled-components';
 import 'normalize.css'; // Resets browser defaults
 import configureStore from './store/configureStore';
 import { selectApplicationContext } from "./utils/appUtils";
-import Home from './pages/home/home.js';
+import Home from '@basepath/pages/home';
 
 
 const store = configureStore();
