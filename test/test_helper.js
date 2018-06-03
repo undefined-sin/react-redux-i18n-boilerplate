@@ -33,8 +33,13 @@ Tests are placed alongside files under test.
 
 const { JSDOM } = require('jsdom');
 
+const appContext = JSON.stringify({
+  language: 'de',
+  theme: 'theme1'
+});
+const html = `<!doctype html><html><body><div id='application' data-app-context='${appContext}'/></body></html>`;
+const jsdom = new JSDOM(html);
 
-const jsdom = new JSDOM('<!doctype html><html><body><div id="application" data-app-context="{}"/></body></html>');
 const { window } = jsdom;
 
 function copyProps(src, target) {
@@ -56,6 +61,7 @@ copyProps(window, global);
 
 import * as enzyme from 'enzyme';
 import ReactSixteenAdapter  from 'enzyme-adapter-react-16';
+import { mapSourcePosition } from 'source-map-support';
 enzyme.configure({ adapter: new ReactSixteenAdapter () });
 
 global.expect = require('chai').expect;

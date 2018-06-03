@@ -9,6 +9,7 @@ import applicationReducer from '../reducers/index';
 import {
   selectApplicationContext
 } from '../utils/appUtils'
+import HomeReducer from '@basepath/pages/home/reducer/index';
 
 let StoreInstance = null;
 
@@ -16,7 +17,7 @@ let StoreInstance = null;
 
 const reducers = combineReducers({
    application: applicationReducer,
-   home: require('../pages/home/reducer/index').default
+   home: HomeReducer
 });
 
 export function getStore(){
