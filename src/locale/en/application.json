@@ -1,4 +1,7 @@
 {
   "title": "This is my CV application",
-  "goback": "Go back in english"
+  "goback": "Go back in english",
+  "welcome": {
+    "time": "Welcome, today is {{date,MM/DD/YYYY}}"
+  }
 }
