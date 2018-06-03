@@ -2,8 +2,8 @@ import React, { Component} from "react";
 import { Provider } from 'react-redux';
 import {ThemeProvider} from 'styled-components';
 import 'normalize.css'; // Resets browser defaults
-import configureStore from './store/configureStore';
-import { selectApplicationContext } from "./utils/appUtils";
+import configureStore from '@basepath/store/configureStore';
+import { selectApplicationContext } from "@basepath/utils/appUtils";
 import Home from '@basepath/pages/home';
 
 

@@ -4,7 +4,6 @@ import React, {
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import i18next from 'i18next';
-import App from '@basepath/App'
 
 const HeaderDiv = styled.div`
   margin: 0 auto;
