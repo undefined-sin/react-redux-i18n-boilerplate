@@ -1,4 +1,4 @@
-import Home from './container/page1';
+import Page1 from './container/page1';
 import Reducer from './reducer';
 export const Entrypoint = {
     locale: {
@@ -7,4 +7,4 @@ export const Entrypoint = {
     },
     reducer: Reducer
 };
-export default Home;
+export default Page1;

@@ -13,7 +13,7 @@ import entries from '@basepath/entrypoints';
 
 let StoreInstance = null;
 
-const devTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const devTool = (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 export function getStore(){
@@ -46,7 +46,7 @@ export default function configureStore() {
       },
       compose(
         applyMiddleware(thunk),
-        devTool
+        devTool || compose
       )
     );
   }

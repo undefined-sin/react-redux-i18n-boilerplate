@@ -6,14 +6,12 @@ import {
   selectLanguage,
   selectTranslator
 } from '@basepath/utils/appUtils';
-import Header from '../../components/header/header';
-import Footer from '../../components/footer/footer';
 
 
-export class Home extends Component {
+export class Page1 extends Component {
   render(){
     return(<div>
-      <Header language={this.props.language} t={this.props.t} />
+      This is page 1
      <Footer />  
     </div>
     );
@@ -28,4 +26,4 @@ function mapStateToProps (state){
 function mapDispatchToProps (state){
   return {};
 }
-export default connect(mapStateToProps, mapDispatchToProps) (Home);
+export default connect(mapStateToProps, mapDispatchToProps) (Page1);
