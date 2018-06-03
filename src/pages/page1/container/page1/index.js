@@ -2,8 +2,8 @@ import React, { Component} from "react";
 import {
   connect
 } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
-  selectLanguage,
   selectTranslator
 } from '@basepath/utils/appUtils';
 
@@ -11,15 +11,18 @@ import {
 export class Page1 extends Component {
   render(){
     return(<div>
-      This is page 1
-     <Footer />  
+      <p>
+        {
+          this.props.t('page1:title')
+        }
+      </p>
+      <Link to="/">{ this.props.t('goback') }</Link>
     </div>
     );
   }
 }
 function mapStateToProps (state){
   return {
-    language: selectLanguage(state),
     t: selectTranslator()
   };
 }

@@ -11,6 +11,7 @@ export default function init() {
     .init({
       fallbackLng: 'en',
       resources,
+      fallbackNS: 'application',
       debug: true,
       interpolation: {
         escapeValue: true

@@ -1,13 +1,3 @@
 {
-  "header": {
-    "title": "Page 1 title in de",
-    "home": "German home",
-    "about": "About us german",
-    "knowmore": "Know more german"
-  },
-  "pages":{
-    "home":{
-      "title": "Page 1 in deutsche"
-    }
-  }
+  "title": "Page 1 title in de"
 }

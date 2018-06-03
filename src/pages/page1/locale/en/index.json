@@ -1,13 +1,3 @@
 {
-    "header": {
-      "title": "Page 1 title in en",
-      "home": "Home",
-      "about": "About us",
-      "knowmore": "Know more"
-    },
-    "pages":{
-      "home":{
-        "title": "Page 1 in english"
-      }
-    }
+  "title": "Page 1 title in en"
 }

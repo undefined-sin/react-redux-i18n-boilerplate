@@ -4,6 +4,7 @@ import React, {
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import i18next from 'i18next';
+import { Link } from 'react-router-dom';
 
 const HeaderDiv = styled.div`
   margin: 0 auto;
@@ -49,8 +50,11 @@ class Header extends Component {
       <HeaderDiv>
     <Title>{t('home:header.title')}</Title>
 		<Menu>
+
 		  <MenuItem>{t('home:header.home')}</MenuItem>
-		  <MenuItem>{t('home:header.about')}</MenuItem>
+      <MenuItem>
+        <Link to='/page1'>{t('home:header.about')}</Link>
+      </MenuItem>
 		  <MenuItem>{t('home:header.knowmore')}</MenuItem>
       <MenuItem>
          <select onChange={changeLanguage} value={this.props.language}>
