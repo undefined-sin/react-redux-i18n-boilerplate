@@ -3,7 +3,7 @@ import i18next from 'i18next';
 let instance = undefined;
 const dataSetName = "appContext";
 
-const translationFunc = (e) => i18next.t(e);
+const translationFunc = (e, args) => i18next.t(e, args);
 
 export function selectApplicationContext (){
   if (!instance){

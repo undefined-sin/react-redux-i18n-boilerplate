@@ -2,6 +2,6 @@
   "title": "This is my CV application",
   "goback": "Go back in english",
   "welcome": {
-    "time": "Welcome, today is {{date,MM/DD/YYYY}}"
+    "time": "The current date is {{- date, DD/MM/YYYY}}"
   }
 }

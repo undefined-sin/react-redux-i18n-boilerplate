@@ -16,7 +16,7 @@ export default function init() {
       fallbackNS: 'application',
       debug: true,
       interpolation: {
-        escapeValue: true,
+        //escapeValue: true,
         formatSeparator: ',',
         format: function(value, format, lng) {
           if (format === 'uppercase') return value.toUpperCase();
