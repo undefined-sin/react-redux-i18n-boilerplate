@@ -13,10 +13,10 @@ export default function init() {
     .init({
       fallbackLng: 'en',
       resources,
-      fallbackNS: 'application',
+      fallbackNS: ['application', 'errors'],
       debug: true,
       interpolation: {
-        //escapeValue: true,
+        escapeValue: true,
         formatSeparator: ',',
         format: function(value, format, lng) {
           if (format === 'uppercase') return value.toUpperCase();

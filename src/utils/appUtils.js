@@ -21,6 +21,7 @@ export function selectLanguage(store){
   return selectApplication(store).language;
 };
 
+export const t = selectTranslator();
 export function selectTranslator(){
   return translationFunc;
 } 

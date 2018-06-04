@@ -27,10 +27,12 @@ const instancesDE = mapLocales("de");
 export default {
     en: {
      application: require('@basepath/locale/en/application.json'),
+     errors: require('@basepath/locale/en/errors.json'),
      ...instancesEN
     },
     de: {
       application: require('@basepath/locale/de/application.json'),
+      errors: require('@basepath/locale/de/errors.json'),
       ...instancesDE
     }
 };
