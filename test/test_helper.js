@@ -1,41 +1,18 @@
-/*
-Tests are placed alongside files under test.
-
-  This file does the following:
-    1. Sets the environment to 'production' so that
-       dev-specific babel config in .babelrc doesn't run.
-    2. Disables Webpack-specific features that Mocha doesn't understand.
-    3. Registers babel for transpiling our code for testing.
-
-    This assures the .babelrc dev config (which includes
-    hot module reloading code) doesn't apply for tests.
-  */
-
-  /*
-    Disable webpack-specific features for tests since
-    Mocha doesn't know what to do with them.
-  */
-  require.extensions['.css'] = function () {
-    return null;
-  };
-  require.extensions['.png'] = function () {
-    return null;
-  };
-  require.extensions['.jpg'] = function () {
-    return null;
-  };
-  
-  /* Register babel so that it will transpile ES6 to ES5 before our tests run. */
-  require('babel-register')();
+import * as enzyme from 'enzyme';
+import ReactSixteenAdapter from 'enzyme-adapter-react-16';
 
 
-  /* setup.js */
+require.extensions['.css'] = () => null;
+
+require.extensions['.png'] = () => null;
+
+require.extensions['.jpg'] = () => null;
 
 const { JSDOM } = require('jsdom');
 
 const appContext = JSON.stringify({
   language: 'de',
-  theme: 'theme1'
+  theme: 'theme1',
 });
 const html = `<!doctype html><html><body><div id='application' data-app-context='${appContext}'/></body></html>`;
 const jsdom = new JSDOM(html);
@@ -58,11 +35,7 @@ global.navigator = {
   userAgent: 'node.js',
 };
 copyProps(window, global);
-
-import * as enzyme from 'enzyme';
-import ReactSixteenAdapter  from 'enzyme-adapter-react-16';
-import { mapSourcePosition } from 'source-map-support';
-enzyme.configure({ adapter: new ReactSixteenAdapter () });
+enzyme.configure({ adapter: new ReactSixteenAdapter() });
 
 global.expect = require('chai').expect;
 

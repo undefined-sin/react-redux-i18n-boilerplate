@@ -1,31 +1,28 @@
-import React, { Component} from "react";
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import {ThemeProvider} from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { HashRouter as Router, Switch, Route, browserHistory } from 'react-router-dom';
 
 
 import 'normalize.css'; // Resets browser defaults
 import configureStore from '@basepath/store/configureStore';
-import { selectApplicationContext } from "@basepath/utils/appUtils";
+import { selectApplicationContext } from '@basepath/utils/appUtils';
 import Home from '@basepath/pages/home';
 import Page1 from '@basepath/pages/page1';
-import {
-  NotFound
-} from '@basepath/components/router/errors'
+import { NotFound } from '@basepath/components/router/errors';
 
 const store = configureStore();
 const context = selectApplicationContext();
 
 const theme = {
-  main: context.theme
+  main: context.theme,
 };
 
-class App extends Component{
-
-  
-  render(){
-    return(<Provider store={store}>
-		    <ThemeProvider theme={theme}>
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
           <Router history={browserHistory}>
             <Switch>
               <Route exact path="/" component={Home} />
@@ -34,7 +31,7 @@ class App extends Component{
             </Switch>
           </Router>
         </ThemeProvider>
-		</Provider>
+      </Provider>
     );
   }
 }

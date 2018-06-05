@@ -1,15 +1,17 @@
-import React from "react";
-import {
-    Link
-} from 'react-router-dom';
-import {
-    t
-  } from '@basepath/utils/appUtils';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { t } from '@basepath/utils/appUtils';
 
-//const t = selectTranslator();
-  
 // TODO: Remove history prop.
-export const GoBack = ({ history, children }) => 
- (<a href="#">{ children }</a>);
+export const GoBack = ({ history, children }) =>
+  (<a href="#" onClick={history.goBack}>{ children }</a>);
 
-export const GoHome = () => (<Link to='/'>{ t('goback') }</Link>); 
+GoBack.propTypes = {
+  children: PropTypes.node,
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }),
+};
+
+export const GoHome = () => (<Link to="/">{ t('goback') }</Link>);
