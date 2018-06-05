@@ -14,7 +14,7 @@ export const routes = {
 export function getRoutes() {
   return Object
     .keys(routes)
-    .map(path => <Route exact={path === '/'} path={path} component={routes[path]} />);
+    .map(path => <Route key={path} exact={path === '/'} path={path} component={routes[path]} />);
 }
 
 export default {

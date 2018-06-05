@@ -2,14 +2,23 @@ import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import moment from 'moment';
 import numeral from 'numeral';
+import { selectLanguage } from '@basepath/utils/appUtils';
 import { getStore } from '@basepath/store/configureStore';
 import resources from './i18n-resources';
 
+function setUpLibraries(language) {
+  moment.locale(language);
+  numeral.locale(language);
+}
+
 export default function init() {
+  const lng = selectLanguage(getStore().getState());
+  setUpLibraries(lng);
   i18next
     .use(LanguageDetector)
     .init({
-      fallbackLng: 'en',
+      fallbackLng: 'de',
+      lng,
       resources,
       fallbackNS: ['application', 'errors'],
       debug: true,
@@ -25,13 +34,13 @@ export default function init() {
       },
     });
 
-  i18next.on('languageChanged', (lng) => {
-    moment.locale(lng);
-    numeral.locale(lng);
+
+  i18next.on('languageChanged', (language) => {
+    setUpLibraries(language);
     const store = getStore();
     store.dispatch({
       type: 'CHANGE_LANGUAGE',
-      payload: lng,
+      payload: language,
     });
   });
 }
