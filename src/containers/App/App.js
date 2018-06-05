@@ -10,6 +10,7 @@ import { selectApplicationContext } from '@basepath/utils/appUtils';
 import Home from '@basepath/pages/home';
 import Page1 from '@basepath/pages/page1';
 import { NotFound } from '@basepath/components/router/errors';
+import { getRoutes } from '@basepath/entrypoints';
 
 const store = configureStore();
 const context = selectApplicationContext();
@@ -25,8 +26,9 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <Router history={browserHistory}>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/page1" component={Page1} />
+              {
+                getRoutes()
+              }
               <Route component={NotFound} />
             </Switch>
           </Router>

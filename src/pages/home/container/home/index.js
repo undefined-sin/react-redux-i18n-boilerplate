@@ -10,7 +10,7 @@ import Footer from '../../components/footer/footer';
 
 
 const Home = ({
-  language,
+  language
 }) => (
   <div>
     <Header language={language} t={t} />
