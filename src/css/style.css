@@ -1,0 +1,27 @@
+.scrollVisible {
+  opacity: 0.3;
+  background-color: aqua;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.scrollHidden {
+  opacity: 0;
+  background-color: aqua;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.scrollVisible:hover {
+  opacity: 1;
+}
