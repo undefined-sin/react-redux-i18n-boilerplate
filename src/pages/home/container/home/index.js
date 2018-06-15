@@ -7,6 +7,7 @@ import {
 } from '@basepath/utils/appUtils';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
+import Demo from '../../components/demo/demo';
 
 
 const Home = ({
@@ -14,6 +15,7 @@ const Home = ({
 }) => (
   <div>
     <Header language={language} t={t} />
+    <Demo />
     <Footer />
   </div>
 );
