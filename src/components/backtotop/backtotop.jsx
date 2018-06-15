@@ -21,15 +21,15 @@ const ScrollButtonStyle = styled.button`
     cursor: ${props => props.show ? 'pointer' : 'auto'};
     width: 44px;
     height: 44px;
-    border-radius: 10px;
+    border-radius: 10px;    
   }
 `;
 
 
 class BackToTop extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       intervalId: 0,
@@ -37,6 +37,7 @@ class BackToTop extends Component {
     }
 
     // binding
+    this.handleOnClick = this.handleOnClick.bind(this);
     this.scrollStep = this.scrollStep.bind(this);
     this.onScroll = this.onScroll.bind(this);
   }
@@ -69,8 +70,8 @@ class BackToTop extends Component {
     window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
   }
 
-  scrollToTop() {
-    let intervalId = setInterval(this.scrollStep, this.props.delayInMs);
+  handleOnClick() {
+    const intervalId = setInterval(this.scrollStep, this.props.delayInMs);
     this.setState({ intervalId });
   }
 
@@ -79,7 +80,7 @@ class BackToTop extends Component {
 
     return (
       <ScrollButtonStyle show={showValue}
-          onClick={() => { this.scrollToTop(); }}
+          onClick={this.handleOnClick}
       >
           <ExpandLessIcon />
       </ScrollButtonStyle>
