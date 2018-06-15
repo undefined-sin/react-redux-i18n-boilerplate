@@ -14,17 +14,39 @@ const ScrollButtonStyle = styled.button`
     border-radius: 5px;
     border: ${props => props.border ? props.border : 'none'};
     transition: width 0.35s, height 0.35s, border-radius 0.35s;
-  }
 
   &:hover {
     opacity: ${props => props.show ? 1 : 0};
     cursor: ${props => props.show ? 'pointer' : 'auto'};
     width: 44px;
     height: 44px;
-    border-radius: 10px;    
-  }
+    border-radius: 10px;
 `;
 
+const ScrollStyle = styled.div`
+	display: ${props => props.show ? 'block' : 'none'};
+	position: fixed;
+	z-index: 200;
+	right: 20px;
+	bottom: 20px;
+	cursor: pointer;
+	background: #fff url(ic_backToTop.svg) 17px 18px no-repeat;
+	background-size: 16px;
+	border-radius: 3px;
+	border: 1px solid #0098db;
+	color: #0098db;
+	height: 48px;
+	line-height: 46px;
+	padding: 0 20px 0 48px;
+	-webkit-box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
+
+  &:hover {
+	background-image: url(ic_backToTop.svg);
+	background-color: #114969;
+    border-color: #114969;
+    color: #fff;
+`;
 
 class BackToTop extends Component {
 
@@ -79,11 +101,11 @@ class BackToTop extends Component {
     const showValue = this.state.show;
 
     return (
-      <ScrollButtonStyle show={showValue}
+      <ScrollStyle show={showValue}
           onClick={this.handleOnClick}
       >
-          <ExpandLessIcon />
-      </ScrollButtonStyle>
+          <ExpandLessIcon>nach oben</ExpandLessIcon>
+      </ScrollStyle>
     );
   }
 }
