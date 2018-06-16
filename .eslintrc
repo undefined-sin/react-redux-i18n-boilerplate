@@ -5,6 +5,9 @@
         "import/prefer-default-export": "off",
         "import/no-named-as-default": "off",
         "import/extensions": "off",
+        "linebreak-style": "off",
+        "padded-blocks": "off",
+        "react/jsx-closing-tag-location": "off",
         "react/jsx-filename-extension": "off",
         "react/prefer-stateless-function": "off",
         "import/no-unresolved": "off",
@@ -15,9 +18,11 @@
     "env": {
         "mocha": true,
         "jasmine": true,
-        "browser": true
+        "browser": true,
+        "es6": true
     },
     "globals": {
         "document": false
-    }
+    },
+    "parser": "babel-eslint"
 }

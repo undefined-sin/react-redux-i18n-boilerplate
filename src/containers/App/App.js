@@ -7,8 +7,6 @@ import { HashRouter as Router, Switch, Route, browserHistory } from 'react-route
 import 'normalize.css'; // Resets browser defaults
 import configureStore from '@basepath/store/configureStore';
 import { selectApplicationContext } from '@basepath/utils/appUtils';
-import Home from '@basepath/pages/home';
-import Page1 from '@basepath/pages/page1';
 import { NotFound } from '@basepath/components/router/errors';
 import { getRoutes } from '@basepath/entrypoints';
 
