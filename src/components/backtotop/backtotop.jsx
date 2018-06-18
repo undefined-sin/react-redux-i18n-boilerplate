@@ -1,27 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ExpandLessIcon from 'react-icons/lib/md/expand-less';
-
-const ScrollButtonStyle = styled.button`
-    opacity: ${props => props.show ? 0.3 : 0};
-    background-color: ${props => props.backgroundColor ? props.backgroundColor : 'aqua'};
-    width: 40px;
-    height: 40px;
-    position: ${props => props.position ? props.position : 'fixed'};
-    bottom: ${props => props.bottom ? props.bottom : '10px'};
-    right: ${props => props.right ? props.right : '10px'};
-    border-radius: 5px;
-    border: ${props => props.border ? props.border : 'none'};
-    transition: width 0.35s, height 0.35s, border-radius 0.35s;
-
-  &:hover {
-    opacity: ${props => props.show ? 1 : 0};
-    cursor: ${props => props.show ? 'pointer' : 'auto'};
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-`;
+import img from './images/ic_backToTop.png';
 
 const ScrollStyle = styled.div`
 	display: ${props => props.show ? 'block' : 'none'};
@@ -30,7 +10,7 @@ const ScrollStyle = styled.div`
 	right: 20px;
 	bottom: 20px;
 	cursor: pointer;
-	background: #fff url(ic_backToTop.svg) 17px 18px no-repeat;
+	background: #fff url(${img}) 15px 22px no-repeat;
 	background-size: 16px;
 	border-radius: 3px;
 	border: 1px solid #0098db;
@@ -42,7 +22,7 @@ const ScrollStyle = styled.div`
 	box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
 
   &:hover {
-	background-image: url(ic_backToTop.svg);
+	background-image: url(${img});
 	background-color: #114969;
     border-color: #114969;
     color: #fff;
@@ -104,7 +84,7 @@ class BackToTop extends Component {
       <ScrollStyle show={showValue}
           onClick={this.handleOnClick}
       >
-          <ExpandLessIcon>nach oben</ExpandLessIcon>
+      nach oben
       </ScrollStyle>
     );
   }
@@ -119,7 +99,7 @@ BackToTop.propTypes = {
 BackToTop.defaultProps = {
   scrollStepInPx: '50',
   delayInMs: '16',
-  showAfterScrolledOffset: '200'
+  showAfterScrolledOffset: '320'
 };
 
 export default BackToTop;
