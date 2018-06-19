@@ -91,7 +91,11 @@ Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut mattis lorem co
 
 Sed efficitur dictum est at mattis. Proin eu diam sit amet eros laoreet scelerisque. Mauris volutpat enim id lacus varius, in hendrerit ipsum venenatis. Cras sollicitudin fringilla quam, at vehicula erat laoreet a. Nam vitae lacinia dolor. Donec vel faucibus massa, faucibus blandit diam. Suspendisse volutpat, eros ac interdum consequat, odio mi gravida mauris, non gravida turpis diam vel risus. Vivamus quis augue a libero fermentum semper in vitae dolor. Nunc vitae nibh eget tellus sagittis condimentum. Duis id auctor turpis, ut suscipit odio. Quisque vehicula egestas dolor vitae volutpat. Suspendisse venenatis dolor ut elit porta lobortis eget ut diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
     </p>
-    <BackToTop scrollStepInPx="51" delayInMs="17" showAfterScrolledOffset="201" iconPath="123" />
+    <BackToTop delayInMs="17"
+               scrollStepInPx="50"
+               showAfterScrolledOffset="320"
+               text="nach oben"
+    />
   </div>
 
 );
