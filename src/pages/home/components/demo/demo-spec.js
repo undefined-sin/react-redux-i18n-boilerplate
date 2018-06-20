@@ -41,19 +41,25 @@ describe('Demo', () => {
       expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
   });
 
-  it('simulates scroll events', () => {
-      const window = new JSDOM('<Demo />').window;
+  it.skip('simulates scroll and click to top events work', () => {
+      const wrapper = mount(<Demo />);
 
-      window.scrollBy(0, 50);
+      expect(wrapper.find('#BackToTop')).to.have.length(1);
+      expect(window.pageYOffset).to.equal(0);
+      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
+
+      // Simulate now the scrolling to the bottom by 500 px
+      window.scrollBy(0, 500);
+
       expect(window.pageYOffset).to.equal(500);
+      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(true);
 
 
-//      const handleOnClick = sinon.spy();
-//      const wrapper = mount((<Demo onClick={handleOnClick}/>));
-//
-//      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
-//      wrapper.find('#scrollStyledId').first().simulate('click');
-//      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
+      const BackToTop = mount(wrapper.find('#BackToTop'));
+      BackToTop.find('#scrollStyledId').first().simulate('click');
+
+      expect(window.pageYOffset).to.equal(0);
+      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
   });
 
 });

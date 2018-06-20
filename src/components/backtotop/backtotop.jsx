@@ -95,15 +95,19 @@ class BackToTop extends Component {
     window.removeEventListener('scroll', this.onScroll);
   }
 
+  manageVisibility(showValue) {
+    this.setState({ show: showValue });
+  }
+
   onScroll() {
     const scrollYOffset = this.props.showAfterScrolledOffsetInPx;
     if (window.pageYOffset >= scrollYOffset) {
       if (!this.state.show) {
-        this.setState({ show: true });
+        this.manageVisibility(true);
       }
     } else {
       if (this.state.show) {
-        this.setState({ show: false });
+        this.manageVisibility(false);
       }
     }
   }
@@ -118,6 +122,9 @@ class BackToTop extends Component {
   handleOnClick() {
     const intervalId = setInterval(this.scrollStep, this.props.delayInMs);
     this.setState({ intervalId });
+
+    // TODO: Another alternative implementation. Very elegant but does not work in IE. Check with Imad
+    // window.scrollIntoView({ block: 'start', behavior: 'smooth' });
   }
 
   render() {

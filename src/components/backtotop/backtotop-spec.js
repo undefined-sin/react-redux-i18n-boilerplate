@@ -80,7 +80,7 @@ describe('BackToTop', () => {
     expect(wrapper.props().color).to.equal(undefined);
   });
 
-  it('should not be appearing on screen until scrolled down', () => {
+  it('should have the ´show´ state changed properly', () => {
     const delayInMs = 17;
     const scrollStepInPx = 50;
     const showAfterScrolledOffset = 320;
@@ -93,6 +93,13 @@ describe('BackToTop', () => {
                           />
                          );
 
+    const instance = wrapper.instance();
+    expect(wrapper.state().show).to.equal(false);
+
+    instance.manageVisibility(true);
+    expect(wrapper.state().show).to.equal(true);
+
+    instance.manageVisibility(false);
     expect(wrapper.state().show).to.equal(false);
   });
 });
