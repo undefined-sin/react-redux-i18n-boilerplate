@@ -137,7 +137,7 @@ class BackToTop extends Component {
     const boxShadow = this.props.boxShadow;
 
     return (
-      <ScrollStyle
+      <ScrollStyle id="scrollStyledId"
           show={showValue}
           onClick={this.handleOnClick}
 

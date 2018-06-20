@@ -2,7 +2,7 @@ import React from 'react';
 import BackToTop from '@basepath/components/backtotop/backtotop';
 
 const Demo = props => (
-  <div>
+  <div id="Demo">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ullamcorper lectus id lobortis. Nunc tempus id dui dapibus placerat. Aliquam erat volutpat. Nulla at diam molestie, sagittis tortor eu, lobortis diam. Sed vel posuere diam, ac volutpat elit. Cras aliquet nisi arcu, laoreet eleifend quam laoreet ac. Nunc auctor posuere velit. Duis sem eros, mattis vitae placerat nec, ornare vitae neque. Phasellus nulla nulla, porttitor non metus at, accumsan venenatis velit. Morbi viverra est lectus. Vestibulum ultricies maximus finibus. Pellentesque sit amet lorem ligula. Nam suscipit maximus odio, imperdiet molestie nulla maximus id. Mauris vitae urna dolor. Sed elementum lacinia sapien et tincidunt.
 
 Sed imperdiet felis lorem, eget cursus orci consequat et. Praesent magna ante, mollis a convallis at, fringilla ac mi. Phasellus at eleifend est, eget varius enim. In dignissim nisi ut nisi imperdiet hendrerit. Curabitur aliquet turpis ac sapien sollicitudin eleifend. Sed nec risus dictum, ornare metus vel, semper ante. Interdum et malesuada fames ac ante ipsum primis in faucibus.
@@ -91,11 +91,13 @@ Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut mattis lorem co
 
 Sed efficitur dictum est at mattis. Proin eu diam sit amet eros laoreet scelerisque. Mauris volutpat enim id lacus varius, in hendrerit ipsum venenatis. Cras sollicitudin fringilla quam, at vehicula erat laoreet a. Nam vitae lacinia dolor. Donec vel faucibus massa, faucibus blandit diam. Suspendisse volutpat, eros ac interdum consequat, odio mi gravida mauris, non gravida turpis diam vel risus. Vivamus quis augue a libero fermentum semper in vitae dolor. Nunc vitae nibh eget tellus sagittis condimentum. Duis id auctor turpis, ut suscipit odio. Quisque vehicula egestas dolor vitae volutpat. Suspendisse venenatis dolor ut elit porta lobortis eget ut diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
     </p>
-    <BackToTop delayInMs="17"
-               scrollStepInPx="50"
-               showAfterScrolledOffset="320"
-               text="nach oben"
-    />
+    <div id="BackToTop">
+        <BackToTop delayInMs="17"
+                   scrollStepInPx="50"
+                   showAfterScrolledOffset="320"
+                   text="nach oben"
+        />
+    </div>
   </div>
 
 );
