@@ -42,7 +42,7 @@ describe('Demo', () => {
   });
 
   it('simulates scroll events', () => {
-      const window = new JSDOM('<Demo />').window;const window = new JSDOM('<Demo />').window;
+      const window = new JSDOM('<Demo />').window;
 
       window.scrollBy(0, 50);
       expect(window.pageYOffset).to.equal(500);
