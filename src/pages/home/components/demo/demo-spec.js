@@ -41,6 +41,7 @@ describe('Demo', () => {
       expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
   });
 
+  // This should be feasible to do when using karma in the project
   it.skip('simulates scroll and click to top events work', () => {
       const wrapper = mount(<Demo />);
 
