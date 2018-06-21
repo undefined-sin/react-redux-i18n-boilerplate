@@ -29,6 +29,10 @@ function copyProps(src, target) {
   Object.defineProperties(target, props);
 }
 
+Object.defineProperty(window, 'scroll', {
+  value: function() {}
+});
+
 global.window = window;
 global.document = window.document;
 global.navigator = {

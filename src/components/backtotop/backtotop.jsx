@@ -31,9 +31,9 @@ const ScrollStyle = styled.div`
 class BackToTop extends Component {
 
     static propTypes = {
-        delayInMs: PropTypes.string,
-        scrollStepInPx: PropTypes.string,
-        showAfterScrolledOffsetInPx: PropTypes.string,
+        delayInMs: PropTypes.number,
+        scrollStepInPx: PropTypes.number,
+        showAfterScrolledOffsetInPx: PropTypes.number,
         position: PropTypes.string,
         zIndex: PropTypes.string,
         right: PropTypes.string,
@@ -52,9 +52,9 @@ class BackToTop extends Component {
     };
 
     static defaultProps = {
-        delayInMs: '16',
-        scrollStepInPx: '50',
-        showAfterScrolledOffsetInPx: '320',
+        delayInMs: 16,
+        scrollStepInPx: 50,
+        showAfterScrolledOffsetInPx: 320,
 
         position: undefined,
         zIndex: undefined,

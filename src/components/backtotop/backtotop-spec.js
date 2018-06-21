@@ -5,14 +5,17 @@ import BackToTop from './backtotop';
 
 describe('BackToTop', () => {
   it('should render the BackToTop component', () => {
-    const wrapper = mount(<div id="BackToTopId"><BackToTop delayInMs="17"
-                                     scrollStepInPx="50"
-                                     showAfterScrolledOffset="320"
-                                     text="nach oben"
+    const delayInMs = 17;
+    const scrollStepInPx = 50;
+    const showAfterScrolledOffset = 320;
+    const text = "nach oben";
+    const wrapper = mount(<div id="BackToTopId"><BackToTop delayInMs={delayInMs}
+                                     scrollStepInPx={scrollStepInPx}
+                                     showAfterScrolledOffset={showAfterScrolledOffset}
+                                     text={text}
                           /></div>
                          );
     expect(wrapper.find(BackToTop)).to.have.length(1);
-    expect(wrapper.find("#BackToTopId")).to.have.length(1);
   });
 
   it('should have the component rendered based on CSS Id', () => {
@@ -21,10 +24,15 @@ describe('BackToTop', () => {
   });
 
   it('should render the BackToTop component with the external div id', () => {
-    const wrapper = mount(<div id="BackToTopId"><BackToTop delayInMs="17"
-                                     scrollStepInPx="50"
-                                     showAfterScrolledOffset="320"
-                                     text="nach oben"
+    const delayInMs = 17;
+    const scrollStepInPx = 50;
+    const showAfterScrolledOffset = 320;
+    const text = "nach oben";
+
+    const wrapper = mount(<div id="BackToTopId"><BackToTop delayInMs={delayInMs}
+                                     scrollStepInPx={scrollStepInPx}
+                                     showAfterScrolledOffset={showAfterScrolledOffset}
+                                     text={text}
                           /></div>
                          );
     expect(wrapper.find("#BackToTopId")).to.have.length(1);

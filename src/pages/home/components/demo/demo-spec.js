@@ -32,35 +32,30 @@ describe('Demo', () => {
     expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
   });
 
-  it('simulates click events', () => {
-      const handleOnClick = sinon.spy();
-      const wrapper = mount((<Demo onClick={handleOnClick}/>));
+  it('should appear and disappear depending on the scroll event', () => {
+      const wrapper = mount((<Demo />));
 
-      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
-      wrapper.find('#scrollStyledId').first().simulate('click');
-      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
-  });
+      // Render the component
+      expect(wrapper.find('BackToTop')).to.have.length(1);
 
-  // This should be feasible to do when using karma in the project
-  it.skip('simulates scroll and click to top events work', () => {
-      const wrapper = mount(<Demo />);
-
-      expect(wrapper.find('#BackToTop')).to.have.length(1);
+      // Ensure page Y coord is at the top
       expect(window.pageYOffset).to.equal(0);
-      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
+
+      // Ensure BackToTop is initially hidden
+      expect(wrapper.find('BackToTop').children().first().props().show).to.equal(false);
 
       // Simulate now the scrolling to the bottom by 500 px
-      window.scrollBy(0, 500);
+      window.pageYOffset = 500;
+      window.dispatchEvent(new Event('scroll'));
 
+      // Update the component rendering
+      wrapper.update();
+
+      // Ensure page Y has the new Y coord value
       expect(window.pageYOffset).to.equal(500);
-      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(true);
 
-
-      const BackToTop = mount(wrapper.find('#BackToTop'));
-      BackToTop.find('#scrollStyledId').first().simulate('click');
-
-      expect(window.pageYOffset).to.equal(0);
-      expect(wrapper.find('#scrollStyledId').first().props().show).to.equal(false);
+      // Ensure BackToTop component is visible
+      expect(wrapper.find('BackToTop').children().first().props().show).to.equal(true);
   });
 
 });
