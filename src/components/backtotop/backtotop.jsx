@@ -128,28 +128,14 @@ class BackToTop extends Component {
   }
 
   render() {
-    const showValue = this.state.show;
-    const { text, position, zIndex, right, bottom, cursor,
-            borderRadius, border, color, height, lineHeight,
-            padding, boxShadow } = this.props;
+    const { show } = this.state;
+    const { text } = this.props;
 
     return (
       <ScrollStyle id="scrollStyledId"
-          show={showValue}
+          {...this.props}
+          show={show}
           onClick={this.handleOnClick}
-
-          position = {position}
-          zIndex = {zIndex}
-          right = {right}
-          bottom = {bottom}
-          cursor = {cursor}
-          borderRadius = {borderRadius}
-          border = {border}
-          color = {color}
-          height = {height}
-          lineHeight = {lineHeight}
-          padding = {padding}
-          boxShadow = {boxShadow}
       >
       {text}
       </ScrollStyle>
