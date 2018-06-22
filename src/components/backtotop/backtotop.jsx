@@ -129,19 +129,9 @@ class BackToTop extends Component {
 
   render() {
     const showValue = this.state.show;
-    const text = this.props.text;
-    const position = this.props.position;
-    const zIndex = this.props.zIndex;
-    const right = this.props.right;
-    const bottom = this.props.bottom;
-    const cursor = this.props.cursor;
-    const borderRadius = this.props.borderRadius;
-    const border = this.props.border;
-    const color = this.props.color;
-    const height = this.props.height;
-    const lineHeight = this.props.lineHeight;
-    const padding = this.props.padding;
-    const boxShadow = this.props.boxShadow;
+    const { text, position, zIndex, right, bottom, cursor,
+            borderRadius, border, color, height, lineHeight,
+            padding, boxShadow } = this.props;
 
     return (
       <ScrollStyle id="scrollStyledId"
