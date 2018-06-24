@@ -8,7 +8,7 @@ import { Entrypoint as Page1Cfg } from '@basepath/pages/page1/index';
 
 export const routes = {
   '/': Home,
-  '/page1': Page1
+  '/about': Page1
 };
 
 export function getRoutes() {
