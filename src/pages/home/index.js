@@ -13,4 +13,9 @@ export const Entrypoint = {
   },
   reducer: Reducer,
 };
+
+function registerPage() {
+  window.PAGE_LOADER.register('home', Home, Entrypoint);
+}
+registerPage();
 export default Home;

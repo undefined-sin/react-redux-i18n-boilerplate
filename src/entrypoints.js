@@ -1,15 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Home from '@basepath/pages/home';
-import Page1 from '@basepath/pages/page1';
-import { Entrypoint as HomeCfg } from '@basepath/pages/home/index';
-import { Entrypoint as Page1Cfg } from '@basepath/pages/page1/index';
-
 
 export const routes = {
-  '/': Home,
-  '/about': Page1
+  '/': window.PAGE_LOADER.getByName('home').page,
+  about: window.PAGE_LOADER.getByName('page1').page
 };
+
 
 export function getRoutes() {
   return Object
@@ -18,6 +14,6 @@ export function getRoutes() {
 }
 
 export default {
-  home: HomeCfg,
-  page1: Page1Cfg,
+  home: window.PAGE_LOADER.getByName('home').entrypoint,
+  page1: window.PAGE_LOADER.getByName('page1').entrypoint,
 };

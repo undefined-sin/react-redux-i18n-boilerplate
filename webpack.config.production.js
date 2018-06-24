@@ -19,12 +19,17 @@ const miniCssExtractPluginInstance = new MiniCssExtractPlugin({
 });
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    bundle: './src/index.js',
+    loader: './src/loader.js',
+    page1: './src/pages/page1/index.js',
+    home: './src/pages/home/index.js'
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         loader: 'babel-loader',
       },
       {
@@ -41,9 +46,20 @@ module.exports = {
   },
   output: {
     publicPath: bundlePath,
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   optimization: {
+    namedChunks: true,
+    splitChunks: {
+      name: 'libraries',
+      cacheGroups: {
+        libraries: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'libraries',
+          chunks: 'initial',
+        },
+      },
+    },
     minimizer: [uglifyPluginInstance, new OptimizeCSSAssetsPlugin({
       cssProcessorOptions: { discardComments: { removeAll: true } },
     })],

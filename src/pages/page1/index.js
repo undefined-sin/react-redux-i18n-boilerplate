@@ -11,4 +11,10 @@ export const Entrypoint = {
   },
   reducer: Reducer,
 };
+
+function registerPage() {
+  window.PAGE_LOADER.register('page1', Page1, Entrypoint);
+}
+registerPage();
+
 export default Page1;

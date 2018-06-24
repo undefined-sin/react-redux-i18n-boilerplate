@@ -17,6 +17,7 @@ class Home extends React.Component {
     return (<div>
       <Header language={language} t={t} />
       <Sidebar />
+      <h1>This is home</h1>
       <Footer />
     </div>);
   }

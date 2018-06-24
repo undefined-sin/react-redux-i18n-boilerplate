@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { HashRouter as Router, Switch, Route, browserHistory } from 'react-router-dom';
 
-
 import 'normalize.css'; // Resets browser defaults
 import configureStore from '@basepath/store/configureStore';
 import { selectApplicationContext } from '@basepath/utils/appUtils';

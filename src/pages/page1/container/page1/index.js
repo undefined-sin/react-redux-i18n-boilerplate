@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { t } from '@basepath/utils/appUtils';
 import { GoBack } from '@basepath/components/router';
 
-
 const Table = styled.div`
   @media(min-width: 768px){
     max-width: 768px;

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 import { Icon } from 'react-materialize';
 import Pallete from '@basepath/components/pallete';
 import { Tooltip } from '../tooltip/tooltip';
-import { Link } from 'react-router-dom';
-
 
 const moveToX = `
   transform: translateX(-205px);
