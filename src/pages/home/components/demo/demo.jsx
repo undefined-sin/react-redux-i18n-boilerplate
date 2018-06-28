@@ -9,6 +9,8 @@ class Demo extends Component {
         this.state = { tags: [{title: '-500 bis 0 EUR'},
                               {title: 'Lastschriften'},
                               {title: 'Kartenzahlungen'},
+                              {title: 'Xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'},
+                              {title: 'XX'},
                               {title: 'Clear All'},
                              ]
                      };
