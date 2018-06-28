@@ -4,23 +4,44 @@ import styled from 'styled-components';
 import img from './images/ic_deleteTag.svg';
 
 const TagStyled = styled.div`
-    color: #888;
-    line-height: 20px;
-    padding: 5px 5px 0px 10px;
-    border: 1px solid #c3c3c3;
-    border-radius: 3px;
-    margin: 5px 6px 0 0;
 
-     -webkit-transition: .13s ease-out;
-     -o-transition: .13s ease-out;
-     transition: .13s ease-out;
-     -webkit-animation: .3s tags--bump 1 ease-out;
-     animation: .3s tags--bump 1 ease-out;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 5px 5px 0 0;
+    z-index: 1;
+    cursor: default;
+    transition: .13s ease-out;
+    animation: .3s tags--bump 1 ease-out;
+    box-sizing: border-box;
+    padding: 5px 5px 5px 10px;
 
-	&:hover {
-	    color: #666;
-	    background: ${props => props.iconImageIsHover ? '#ddecf6' : '#f2f7fb'};
+	&:hover > span {
+	  color: #666;
 	}
+
+	&:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border: 1px solid #c3c3c3;
+      border-radius: 3px;
+      z-index: -1;
+      pointer-events: none;
+      transition: 80ms ease;
+    }
+
+    &:hover:before {
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      background: ${props => props.iconImageIsHover ? '#ddecf6' : '#f2f7fb'};
+    }
 `;
 
 const ImgStyled = styled.img`
