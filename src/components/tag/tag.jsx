@@ -30,6 +30,10 @@ const ImgStyled = styled.img`
 	float: right;
 	margin-left: 6px;
 	transform: rotate(45deg);
+
+	&:hover {
+	    cursor: pointer;
+	}
 `;
 
 class Tag extends Component {
@@ -69,7 +73,7 @@ class Tag extends Component {
 
     return (
       <TagStyled onClick={onClick} iconImageIsHover={iconImageIsHover} >
-        <span>{title}</span>
+        <span title={title}>{title}</span>
         <a onClick={onDelete} onMouseEnter={this.onMouseEnterInImageIcon} onMouseLeave={this.onMouseLeaveInImageIcon}>
             <ImgStyled src={img}></ImgStyled>
         </a>
