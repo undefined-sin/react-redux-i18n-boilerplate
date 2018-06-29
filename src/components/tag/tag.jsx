@@ -14,7 +14,7 @@ const TagStyled = styled.div`
     transition: .13s ease-out;
     animation: .3s tags--bump 1 ease-out;
     box-sizing: border-box;
-    padding: 5px 5px 5px 10px;
+    padding: 5px 5px 0 10px;
 
 	&:hover > span {
 	  color: #666;
